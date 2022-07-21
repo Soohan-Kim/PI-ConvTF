@@ -16,6 +16,7 @@
 - For linux systems, in the case of 'Could not load libcusolver.so.11' error when trying to train tf based models, try the following: 
 
     `ln -s /usr/local/cuda-11.0/targets/x86_64-linux/lib/libcusolver.so.10 /usr/local/cuda-11.0/targets/x86_64-linux/lib/libcusolver.so.11`
+    
     `export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}`
 
 2. Preprocess
