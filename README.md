@@ -8,7 +8,7 @@
 
 # Makefile Structure 
 
-1. Setup
+## 1. Setup
 - COMMAND: `make setup fw=tf` OR `make setup fw=torch`
 - args: fw (tf OR torch)
 - recommend using different virtual environments or docker containers for tensorflow and pytorch
@@ -19,14 +19,17 @@
     
     `export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}`
 
-2. Preprocess
+
+## 2. Preprocess
 - start virtual environment or docker container first
 - COMMAND: `make preprocess`
 - refer to 'Data' section for further details 
 - args: m_range, ttm_range, grid_size
 - preprocesses and saves data according to moneyness range & ttm range & grid_size 
 
-3. Train and Test Models
+
+
+## 3. Train and Test Models
 - start virtual environment or docker container first
 - COMMAND: `make model`
 - args: m_range, ttm_range, grid_size, conv_more_inputs, fw, model_name, model_save, gpu
@@ -39,14 +42,15 @@
 - extra requirements: dependencies (recommend using virtual environments) need to be set up for tensorflow OR pytorch, discretionary adjustment of hyperparameters in tensorflow_src/configs.py OR pytorch_src/configs.py
 - trains models specified by fw OR model_name & conv_more_inputs
 
--> logs train and valid losses in tensorboard
+    -> logs train and valid losses in tensorboard
 
--> saves models (via .pt and .hdf5 extensions) and respective hyperparameter configurations (as JSON files) in models/models/ and models/configs/
+    -> saves models (via .pt and .hdf5 extensions) and respective hyperparameter configurations (as JSON files) in models/models/ and models/configs/
 - makes volatility predictions on test set for models specified by model_name and evaluates MAPEs
 
--> saves predictions as numpy file in results/preds/ and MAPEs as numpy file in results/MAPEs/vol/
+    -> saves predictions as numpy file in results/preds/ and MAPEs as numpy file in results/MAPEs/vol/
 
-4. Evaluate MAPEs and Visualize
+
+## 4. Evaluate MAPEs and Visualize
 - start virtual environment or docker container first
 - COMMAND: `make eval`
 - args: call option price outlier exclusion boundary percentile low & high, include_more, model_save
