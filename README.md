@@ -38,9 +38,12 @@
 - for more inputs case, example of saved file name would be 'more_inputs_ConvLSTM_Model1.hdf5'
 - extra requirements: dependencies (recommend using virtual environments) need to be set up for tensorflow OR pytorch, discretionary adjustment of hyperparameters in tensorflow_src/configs.py OR pytorch_src/configs.py
 - trains models specified by fw OR model_name & conv_more_inputs
+
 -> logs train and valid losses in tensorboard
+
 -> saves models (via .pt and .hdf5 extensions) and respective hyperparameter configurations (as JSON files) in models/models/ and models/configs/
 - makes volatility predictions on test set for models specified by model_name and evaluates MAPEs
+
 -> saves predictions as numpy file in results/preds/ and MAPEs as numpy file in results/MAPEs/vol/
 
 4. Evaluate MAPEs and Visualize
