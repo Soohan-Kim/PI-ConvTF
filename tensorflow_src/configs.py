@@ -24,7 +24,7 @@ PINN = {
     'init_lr': 0.1,
     'reduce_lr_after': 20,
     'stop_lr_value': 1e-10,
-    'PINN_range': [-80000, -40000]
+    'PINN_range': [-80000, -40000],
     'model_hp': {
         'volatility': {
             'hidden_layers': [10000],
@@ -35,5 +35,6 @@ PINN = {
             'activation': 'softplus'
         }
     },
-    'model_load_path': None # If conducting transfer learning
+    'model_load_path': None, # If conducting transfer learning
+    'model_save_name': ''
 }

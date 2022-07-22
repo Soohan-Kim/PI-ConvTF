@@ -1,0 +1,16 @@
+---------------------- SCIANN 0.6.5.0 ---------------------- 
+For details, check out our review paper and the documentation at: 
+ +  "https://www.sciencedirect.com/science/article/pii/S0045782520307374", 
+ +  "https://arxiv.org/abs/2005.08803", 
+ +  "https://www.sciann.com". 
+
+ Need support or would like to contribute, please join sciann`s slack group: 
+ +  "https://join.slack.com/t/sciann/shared_invite/zt-ne1f5jlx-k_dY8RGo3ZreDXwz0f~CeA" 
+ 
+TensorFlow Version: 2.5.1 
+Python Version: 3.6.9 |Anaconda, Inc.| (default, Jul 30 2019, 19:07:31) 
+[GCC 7.3.0] 
+
+Outdated SciANN installation is found (V-0.6.5.0). Get the latest version (V-0.6.7.0):  
+      > pip [--user] install --upgrade sciann  
+True

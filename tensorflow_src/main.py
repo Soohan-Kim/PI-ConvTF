@@ -13,7 +13,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
 
     parser.add_argument('-m', type=float, default=[0.9, 1.1], help='moneyness range, requires 2 floats (low and high)', nargs=2)
-    parser.add_argument('-ttm', type=float, default=[0.04, 1], help='ttm range, requires 2 floats (low and high)', nargs=2)
+    parser.add_argument('-ttm', type=float, default=[0.04, 1.0], help='ttm range, requires 2 floats (low and high)', nargs=2)
     parser.add_argument('-g', type=int, default=20, help='grid size (int); number of points to slice moneyness and ttm range into')
     parser.add_argument(
         '-save', type=str, 
