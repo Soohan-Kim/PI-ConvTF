@@ -1,7 +1,0 @@
-2022-07-22 21:54:26.250723: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudart.so.11.0
-Traceback (most recent call last):
-  File "main.py", line 33, in <module>
-    PINN_range=configs.PINN['PINN_range']
-  File "../get_data.py", line 129, in get_data
-    datafiles = sorted([f for f in listdir(conv_dir) if isfile(join(conv_dir, f))])
-FileNotFoundError: [Errno 2] No such file or directory: './data/m_0.9_1.1/ttm_0.04_1.0/grid_20/conv'

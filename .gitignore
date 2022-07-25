@@ -1,0 +1,5 @@
+data/**/conv/*
+data/**/pi_conv_tf/*
+data/**/pinn/*
+data/raw/*.csv
+data/raw/!*2021-08-13.csv

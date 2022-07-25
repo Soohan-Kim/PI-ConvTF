@@ -16,7 +16,7 @@ import argparse
 def reject_outliers(data, call, p_low, p_high):
     total = np.concatenate((data, call), axis=-1)
 
-    total = total[(total[:, 0] < np.percentile(total[:, 0], p_low)) & (total[:, 0] > np.percentile(total[:, 0], p_high))]
+    total = total[(total[:, 0] < np.percentile(total[:, 0], p_high)) & (total[:, 0] > np.percentile(total[:, 0], p_low))]
 
     return total[:, 0], total[:, 1]
 
@@ -29,13 +29,14 @@ def get_eval_data(save_name, days_only=False):
     target_configs = [c for c in os.listdir('../models/configs') if save_name == c.split('_')[-2]]
     f = open('../models/configs/' + target_configs[0])
     config_data = json.load(f)
-    test_start, test_end = config_data['test_start'], config_data['test_end']
+    test_start = dt.datetime.strptime(config_data['test_start'], '%Y%m%d')
+    test_end = dt.datetime.strptime(config_data['test_end'], '%Y%m%d')
     m_range, ttm_range, grid = config_data['m_range'], config_data['ttm_range'], config_data['grid']
     f.close()
 
     # Get ttm, s, r, C_bs, k data
     test_days = []
-    src_dir = '../data/m_' + str(m_range[0]) + '_' + str(m_range[1]) + '/ttm_' + str(ttm_range[0]) + '_' + str(ttm_range[1]) + '/grid_' + str(grid)
+    src_dir = '../data/m_' + str(m_range[0]) + '_' + str(m_range[1]) + '/ttm_' + str(ttm_range[0]) + '_' + str(ttm_range[1]) + '/grid_' + str(grid) + '/pinn'
     f_names = os.listdir(src_dir)
     for f in f_names:
         day_time = dt.datetime.strptime(f[:10], '%Y-%m-%d').timestamp()
@@ -72,7 +73,7 @@ def get_eval_data(save_name, days_only=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
 
-    parser.add_argument('-p', type=float, default=[10, 90], help='low and high percentile value to exclude predicted call option prices')
+    parser.add_argument('-p', type=int, default=[10, 90], help='low and high percentile value to exclude predicted call option prices', nargs=2)
     parser.add_argument('-save', type=str, required=True, help='filename to retrieve relevant model volatility predictions for evaluation')
 
     args = parser.parse_args()
@@ -107,6 +108,7 @@ if __name__ == '__main__':
             call_preds, call = reject_outliers(call_preds, call, args.p[0], args.p[1])
 
             mapes.append(100*np.sum(np.divide(abs(call - call_preds), call)) / call.shape[0])
-
+        
+        os.makedirs('../results/MAPEs/call/', exist_ok=True)
         # Save daily MAPEs per model
         np.save('../results/MAPEs/call/' + v[:-9] + 'call_mapes.npy', np.array(mapes))
