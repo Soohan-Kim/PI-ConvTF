@@ -82,5 +82,3 @@ The following command will generate all 3 data formats for all data dates accord
 To specify moneyness range, ttm range, and grid size, type custom settings as follows:
 
     make preprocess m_low={m_low} m_high={m_high} ttm_low={ttm_low} ttm_high={ttm_high} g={g}
-
-Sample preprocessed data of one day is provided for each data format under data/m_0.9_1.1/ttm_0.04_1.0/grid_20/ in 3 subfolders: pinn/, conv/, pi_conv_tf/.
