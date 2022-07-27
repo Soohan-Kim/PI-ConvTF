@@ -6,6 +6,7 @@ import argparse
 import os
 
 if __name__ == '__main__':
+    
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
 
     parser.add_argument('-cmi', type=int, default=0, choices=[0, 1], help='option for training ConvLSTM, SA-ConvLSTM, ConvTF with more inputs; set (1) or not (0)')

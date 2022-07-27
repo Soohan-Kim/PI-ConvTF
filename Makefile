@@ -8,8 +8,8 @@ g = 20
 conv_more_inputs = 0
 model_name = all
 model_save = Model1
-p_low = 10
-p_high = 90
+p_low = 20
+p_high = 100
 include_more = 0
 device= gpu:0
 

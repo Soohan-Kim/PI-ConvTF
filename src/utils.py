@@ -340,7 +340,7 @@ class PINN_TrainTest:
     
     def train(self, x_train, y_train):
         '''
-        Builds and trains ConvLSTM model according to configs.
+        Builds and trains PINN model according to configs.
         During training, train and valid losses are logged on tensorboard, and
         the trained model is saved.
         If conducting transfer learning, loads model from 'model_load_path',
