@@ -1,6 +1,6 @@
 # Physics-informed Convolutional Transformer for Predicting Volatility Surface
 
-- This repo contains implementation code for the paper [Physics-informed Convolutional Transformer for Predicting Volatility Surface](https://www.tandfonline.com/doi/full/10.1080/14697688.2023.2294799).
+- This repo contains implementation code for the paper [Physics-informed Convolutional Transformer for Predicting Volatility Surface](https://www.tandfonline.com/doi/full/10.1080/14697688.2023.2294799), written by Soohan Kim, Seok-Bae Yun, Hyeong-Ohk Bae, Muhyun Lee, and Youngjoon Hong.
 
 ## Training Environment
 
