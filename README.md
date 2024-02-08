@@ -1,6 +1,6 @@
-# Models/Experiments Code for the paper Physics-informed Convolutional Transformer for Predicting Volatility Surface
+# Physics-informed Convolutional Transformer for Predicting Volatility Surface
 
-- Quantitative Finance publication link: https://www.tandfonline.com/doi/full/10.1080/14697688.2023.2294799
+- This repo contains implementation code for the paper [Physics-informed Convolutional Transformer for Predicting Volatility Surface](https://www.tandfonline.com/doi/full/10.1080/14697688.2023.2294799).
 
 # Training Environment
 
