@@ -2,16 +2,16 @@
 
 - This repo contains implementation code for the paper [Physics-informed Convolutional Transformer for Predicting Volatility Surface](https://www.tandfonline.com/doi/full/10.1080/14697688.2023.2294799).
 
-# Training Environment
+## Training Environment
 
 - python: 3.7.11
 - OS: linux, Ubuntu 20.04
 - CUDA: 11.4 (Driver Version 470.94)
 
 
-# Makefile Structure 
+## Makefile Structure 
 
-## 1. Setup
+### 1. Setup
 - COMMAND: `make setup`
 - installs dependencies listed in src/requirements.txt
 - For linux systems, in the case of 'Could not load libcusolver.so.11' error when trying to train tf based model PINN, try the following: 
@@ -21,14 +21,14 @@
     `export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}`
 
 
-## 2. Preprocess
+### 2. Preprocess
 - COMMAND: `make preprocess`
 - refer to 'Data' section for further details 
 - args: m_range, ttm_range, grid_size
 - preprocesses and saves data according to moneyness range & ttm range & grid_size 
 
 
-## 3. Train and Test Models
+### 3. Train and Test Models
 - COMMAND: `make model`
 - args: conv_more_inputs, model_name, model_save, gpu
 - Ex) `make model conv_more_inputs=1 model_name=all model_save=Model1 device=gpu:0`
@@ -49,7 +49,7 @@
     -> saves predictions as numpy file in results/preds/ and MAPEs as numpy file in results/MAPEs/vol/
 
 
-## 4. Evaluate MAPEs and Visualize
+### 4. Evaluate MAPEs and Visualize
 - start virtual environment or docker container first
 - COMMAND: `make eval`
 - args: call option price outlier exclusion boundary percentile low & high, include_more, model_save
@@ -61,10 +61,10 @@
 => The `make` option combines steps 3 and 4.
 
 
-# Data
+## Data
 The raw data for all experiments was purchased from https://datashop.cboe.com/option-eod-summary. 
 
-## Specifications for data purchase
+### Specifications for data purchase
 - Purchase Type: Historical
 - Underlying Symbols: ^SPX
 - Dates: as denoted in data/data_dates.txt
@@ -72,7 +72,7 @@ The raw data for all experiments was purchased from https://datashop.cboe.com/op
 
 => Sample raw data file for one day is provided in data/raw/
 
-## Preprocess Formats
+### Preprocess Formats
 Specifications include moneyness range, time to maturity (ttm) range, and grid size, which can be explicitly set in the command line. These are not required fields as they have default settings. Also, there are 3 data formats that preprocessing aims to build, which is as follows.
 
 - pinn: pointwise data of (ttm, moneyness, volatility, underlying price, risk free rate, call option price) 
